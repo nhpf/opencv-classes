@@ -8,15 +8,7 @@ criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 
 def calibrate(dir_imgs, prefix, image_format, square_size, width=9, height=6):
     """ Pega imagens do 'tabuleiro de xadrez' tiradas com uma câmera para gerar uma matriz de correção """
-    # Prepara pontos  (0,0,0), (1,0,0), (2,0,0) ....,(8,6,0) dependendo do tamanho da câmera
-    a = [
-        [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8]],
-        [[0.02, 0], [1, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8]],
-        [[2, 0], [2, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8]],
-        [[3, 0], [3, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8]],
-        [[4, 0], [4, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8]],
-        [[5, 0], [4, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8]],
-    ]
+    # Prepara pontos  (0,0,0), (1,0,0), (2,0,0) ....,(8,6,0) dependendo do tamanho do tabuleiro
     objp = np.zeros((height*width, 3), np.float32)              # Matriz com zeros para as interseções do tabuleiro. São 3 zeros para cada ponto (x, y, z)
     objp[:, :2] = np.mgrid[0:width, 0:height].T.reshape(-1, 2)  # Preenche essa matriz de zeros com as coordenadas (x, y, 0) de acordo com as dimensões do tabuleiro
 
@@ -164,10 +156,10 @@ def draw_cube_from_camera(mtx, dist, width=9, height=6):
 
 if __name__ == '__main__':
     # Calibrar com imagens output1.png, output2.png, ... Dentro do diretório '/images'
-    #ret, mtx, dist, rvecs, tvecs = calibrate('../images', 'output', 'png', 0.02, 9, 6)
+    ret, mtx, dist, rvecs, tvecs = calibrate('../images', 'output', 'png', 0.02, 9, 6)
 
     # Salvar coeficientes num arquivo ../coeff.yml
-    #save_coefficients(mtx, dist, '../coeff.yml')
+    save_coefficients(mtx, dist, '../coeff.yml')
 
     # Recuperar esses coeficientes do arquivo
     mtx, dist = load_coefficients('../coeff.yml')
