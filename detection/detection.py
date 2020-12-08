@@ -40,7 +40,7 @@ def projection_matrix(calibration_matrix, homography_matrix):
 
 def prepare_title(im_width, title):
     # Fonte que será usada para desenhar o título no poster
-    font_path = "..\\database\\Karla-Bold.ttf"
+    font_path = "arial.ttf"  # "..\\database\\Karla-Bold.ttf"
     font_size = 36
     font = ImageFont.truetype(font_path, font_size)
 
@@ -132,6 +132,8 @@ def augment_posters(posters, calib_mtx, calib_dst):
 
     # mapx, mapy são os fatores de correção que serão aplicados em cada frame para eliminar a distorção
     mapx, mapy = cv2.initUndistortRectifyMap(calib_mtx, calib_dst, None, newcameramtx, (w, h), 5)
+
+    print("Para sair, pressione a tecla q")
 
     while True:
         # A cada iteração, captura um frame

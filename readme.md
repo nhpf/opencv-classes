@@ -1,6 +1,6 @@
 # OpenCV Classes
 
-I am teaching a portuguese student to use [OpenCV](https://opencv.org/) in a small project, while learning it myself.
+I am teaching a portuguese student to use [OpenCV](https://opencv.org/) in a small project.
 
 This is a personal and well-commented set of scripts that might be useful for people with some computer vision knowledge getting into OpenCV.
 
@@ -8,7 +8,11 @@ The motivating project is an augmentation program that, upon detection of movie 
 
 Mind that if your webcam has low resolution, the image matching will work better for images with lower resolution. In other words, if the level of detail your camera can capture is low, the generation of keypoints for each image should consider the same level of detail.
 
-| File        | Content           | is Complete  |
+You will just need Python 3.6+ and `pip3 install opencv-contrib-python` to run every script.
+
+Fore more usage information, clone this repository and run `python app.py -h`
+
+| File        | Content           | Status |
 | ----------- |-------------| -----|
 | `calibration/simple-calibration.py`    | Image calibration functions and a side-by-side view of the original and calibrated images | :heavy_check_mark: |
 | `calibration/complete-calibration.py`  | Same as above but with a cube rendered on top of the calibrated image | :heavy_check_mark: |
@@ -18,6 +22,7 @@ Mind that if your webcam has low resolution, the image matching will work better
 | `detection/detect-images-simple.py`| Recognizes an image from a calibrated camera capture | :heavy_check_mark: |
 | `detection/detect-images-complete.py`| Same as above but the camera image is replaced by the detected poster image with title and cubes representing the movie rating | :heavy_check_mark: |
 | `detection/detection.py`| Same as `detect-images-simple.py` but the title and cubes representing the movie rating appear on top of the detected poster | :heavy_check_mark: |
+| `app.py`| Calls the functions defined above with CLI help and information | :heavy_check_mark: |
 
 Calibration References:
  - https://docs.opencv.org/3.1.0/dc/dbb/tutorial_py_calibration.html
