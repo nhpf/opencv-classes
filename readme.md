@@ -36,6 +36,6 @@ Detection References:
  - https://blog.francium.tech/feature-detection-and-matching-with-opencv-5fd2394a590
 
 Augmentation References:
- - https://bitesofcode.wordpress.com/2017/09/12/augmented-reality-with-python-and-opencv-part-2/
+ - https://bitesofcode.wordpress.com/2018/09/16/augmented-reality-with-python-and-opencv-part-2/
  - https://github.com/juangallostra/augmented-reality
  - https://github.com/anshul-16/perspective-homography-opencv
