@@ -94,16 +94,16 @@ def draw_cube_in_img(img, imgpts):
     # A função reshape(-1,2) é usada para garantir que a variável imgpts seja uma matriz com dimensão X por 2 (x linhas, cada uma com 2 pontos)
     # Como x=8 vértices no cubo, o -1 podia ser substituído por 8 também
     imgpts = np.int32(imgpts).reshape(-1, 2)
-    # Aqui conectamos os primeiros 4 pontos em vermelho, correspondentes à base do cubo
+    # Aqui conectamos os primeiros 4 pontos em cinza, correspondentes à base do cubo
     # Os argumentos são imagem, vetor de pontos, -1 para desenhar todos os lados, cor e espessura 3.
     # Se um valor negativo for fornecido para a espessura, ele pinta a face inteira.
-    img = cv2.drawContours(img, [imgpts[:4]], -1, (255, 0, 0), -1)
-    # O loop itera as variáveis [i de 0 a 3] e [j de 4 a 7]
-    for i, j in zip(range(4), range(4, 8)):
-        # Conectamos em verde o i-ésimo ponto de imgpts com o j-ésimo ponto de imgpts (conectar pontos da base com pontos do topo do cubo)
-        img = cv2.line(img, tuple(imgpts[i]), tuple(imgpts[j]), (0, 0, 255), 2)
-    # Aqui conectamos os últimos 4 pontos em azul, correspondentes ao topo do cubo
-    img = cv2.drawContours(img, [imgpts[4:]], -1, (0, 0, 255), -1)
+    img = cv2.drawContours(img, [imgpts[:4]], -1, (100, 100, 100), -1)
+    # O loop percorre as 4 faces laterais do cubo e pinta cada face com a cor branca
+    for i in range(4):
+        img = cv2.drawContours(img, [np.array([list(imgpts[i]), list(imgpts[((i+1) % 4)]),
+                                               list(imgpts[4 + ((i+1) % 4)]), list(imgpts[4+i])])], -1, (255, 255, 255), -1)
+    # Aqui conectamos os últimos 4 pontos em cinza, correspondentes ao topo do cubo
+    img = cv2.drawContours(img, [imgpts[4:]], -1, (100, 100, 100), -1)
     return img
 
 

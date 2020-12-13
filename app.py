@@ -109,7 +109,7 @@ if __name__ == "__main__":
                              'Exemplo de uso: app.py --calibrate images output png')
     parser.add_argument("--update-db", metavar='[txt_file]',
                         help='Atualizar o banco de dados a partir de um arquivo .txt\n'
-                             'Exemplo de arquivo movies.txt:\n\t./images/filme1.jpg, Sharknado, 2<\n\t./images/filme2.png, Star Wars, 4\n\n'
+                             'Exemplo de arquivo movies.txt:\n\t./images/filme1.jpg, Sharknado, 2\n\t./images/filme2.png, Star Wars, 4\n\n'
                              'Exemplo de uso: app.py --update movies.txt')
     args = parser.parse_args()
 
