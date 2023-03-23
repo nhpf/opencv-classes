@@ -8,6 +8,8 @@ The motivating project is an augmentation program that, upon detection of movie 
 
 Mind that if your webcam has low resolution, the image matching will work better for images with lower resolution. In other words, if the level of detail your camera can capture is low, the generation of keypoints for each image should consider the same level of detail.
 
+![](./demo.gif)
+
 You will just need Python 3.6+ and `pip3 install opencv-contrib-python` to run every script.
 
 Fore more usage information, clone this repository and run `python app.py -h`
